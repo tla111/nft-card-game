@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useGlobalContext } from '../context';
-import { PageHOC, CustomInput } from '../components';
+import { PageHOC, CustomInput, CustomButton } from '../components';
 
 const Home = () => {
   const { contract, walletAddress } = useGlobalContext();
@@ -12,6 +12,11 @@ const Home = () => {
         placeholder="Enter your player name"
         value={playerName}
         handleValueChange={setPlayerName}
+      />
+      <CustomButton
+        title="Register"
+        handleClick={() => { }}
+        restStyles="mt-6"
       />
     </div>
   )
