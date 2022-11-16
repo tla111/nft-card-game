@@ -10,6 +10,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [walletAddress, setWalletAddress] = useState("")
     const [provider, setProvider] = useState("")
     const [contract, setContract] = useState("")
+    const [showAlert, setShowAlert] = useState({ status: "false", type: "info,", message: "" })
 
 
     //* Set the wallet address to the state
@@ -40,6 +41,15 @@ export const GlobalContextProvider = ({ children }) => {
             setContract(newContract)
         }
     }, [])
+
+    useEffect(() => {
+        if (showAlert?.status) {
+            const timer = setTimeout(() => {
+                setShowAlert({ status: "false", type: "info,", message: "" })
+            }, [5000])
+        }
+    }, [showAlert])
+
     return (
         <GlobalContext.Provider value={{
             contract, walletAddress
