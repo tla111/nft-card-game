@@ -8,20 +8,23 @@ const Home = () => {
 
   const handleClick = async () => {
     try {
-      console.log({ contract, walletAddress })
       const playerExists = await contract.isPlayer(walletAddress)
 
       if (!playerExists) {
         await contract.registerPlayer(playerName, playerName)
 
         setShowAlert({
-          status: "true",
+          status: true,
           type: "info",
           message: `${playerName} is being summoned!`
         })
       }
     } catch (error) {
-      alert(error)
+      setShowAlert({
+        status: true,
+        type: "failure",
+        message: "Something went wrong!"
+      })
     }
   }
 
