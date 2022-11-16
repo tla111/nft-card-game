@@ -17,6 +17,17 @@ export const GlobalContextProvider = ({ children }) => {
     useEffect(() => {
         updateCurrentWalletAddress()
     }, [])
+
+    useEffect(() => {
+        const setSmartContractAndProvider = async () => {
+            const web3modal = new web3modal();
+            const connection = await web3modal.connect()
+            const newProvider = ethers.providers.Web3Provider(connection)
+            const signer = newProvider.signer()
+            const newContract = new ethers.Contract()
+
+        }
+    }, [])
     return (
         <GlobalContext.Provider value={{
             demo: "test"
