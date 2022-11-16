@@ -1,10 +1,12 @@
 import React from 'react';
+import { useGlobalContext } from '../context';
 import { PageHOC } from '../components';
 
 const Home = () => {
+  const { demo } = useGlobalContext();
   return (
     <div>
-      <h1 className="text-white text-xl">Hello from Home</h1>
+      <h1 className="text-white text-xl">{demo}</h1>
     </div>
   )
 };
