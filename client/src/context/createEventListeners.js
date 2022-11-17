@@ -11,7 +11,7 @@ const AddNewEvent = (eventFilter, provider, cb) => {
     cb(parsedLog)
 }
 
-export const createEventListeners = () => {
+export const createEventListeners = ({ navigate, contract, provider, walletAddress, setShowAlert }) => {
     const newPlayerEventFilter = contract.filters.NewPlayer();
 
     AddNewEvent(newPlayerEventFilter, provider, ({ args }) => {
