@@ -5,17 +5,16 @@ const AddNewEvent = (eventFilter, provider, cb) => {
     provider.removeListener(eventFilter);
 
     provider.on(eventFilter, (logs) => {
-        const parsedLog = (new ethers.utils.Interface(ABI)).parseLog(Logs)
+        const parsedLog = (new ethers.utils.Interface(ABI)).parseLog(logs)
 
         cb(parsedLog)
     })
-
 }
 
 export const createEventListeners = ({ navigate, contract, provider, walletAddress, setShowAlert }) => {
-    const newPlayerEventFilter = contract.filters.NewPlayer();
+    const NewPlayerEventFilter = contract.filters.NewPlayer();
 
-    AddNewEvent(newPlayerEventFilter, provider, ({ args }) => {
+    AddNewEvent(NewPlayerEventFilter, provider, ({ args }) => {
         console.log("New player created!", args);
 
         if (walletAddress === args.owner) {
