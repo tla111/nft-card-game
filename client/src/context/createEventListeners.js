@@ -6,9 +6,10 @@ const AddNewEvent = (eventFilter, provider, cb) => {
 
     provider.on(eventFilter, (logs) => {
         const parsedLog = (new ethers.utils.Interface(ABI)).parseLog(Logs)
+
+        cb(parsedLog)
     })
 
-    cb(parsedLog)
 }
 
 export const createEventListeners = ({ navigate, contract, provider, walletAddress, setShowAlert }) => {
