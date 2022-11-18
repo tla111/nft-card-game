@@ -6,7 +6,7 @@ import { CustomButton, CustomInput, PageHOC, GameLoad } from '../components';
 
 const CreateBattle = () => {
     const { contract, battleName, setBattleName } = useGlobalContext();
-    const [waitBattle, setWaitBattle] = useState(true)
+    const [waitBattle, setWaitBattle] = useState(false)
     const navigate = useNavigate()
 
     const handleClick = async () => {
@@ -32,7 +32,7 @@ const CreateBattle = () => {
                 <CustomButton
                     title="Create Battle"
                     handleClick={handleClick}
-                    resetStyles="mt-6"
+                    restStyles="mt-6"
                 />
             </div>
 
