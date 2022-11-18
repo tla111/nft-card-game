@@ -10,10 +10,11 @@ const CreateBattle = () => {
     const navigate = useNavigate()
 
     const handleClick = async () => {
-        if (!battleName || battleName.trim()) return null
+        if (!battleName || !battleName.trim()) return null;
 
         try {
-            await contract.CreateBattle(battleName)
+            await contract.createBattle(battleName)
+
             setWaitBattle(true)
         } catch (error) {
             console.log(error);
