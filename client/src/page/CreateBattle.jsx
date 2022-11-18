@@ -7,9 +7,17 @@ import { CustomButton, CustomInput, PageHOC } from '../components';
 const CreateBattle = () => {
     const navigate = useNavigate()
     return (
-        <div>
-            <h1 className="text-white text-xl">Hello from CreateBattle</h1>
-        </div>
+        <>
+            <div className="flex flex-col mb-5">
+                <CustomInput
+                    label="Battle"
+                    placeholder="Enter battle name"
+                />
+                <CustomButton
+
+                />
+            </div>
+        </>
     )
 };
 
