@@ -24,6 +24,8 @@ const CreateBattle = () => {
                     resetStyles="mt-6"
                 />
             </div>
+
+            <p className={styles.infoText} onClick={() => navigate("/join-battle")}>Or join already existing battles</p>
         </>
     )
 };
