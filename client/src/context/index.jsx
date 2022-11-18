@@ -93,7 +93,13 @@ export const GlobalContextProvider = ({ children }) => {
 
     return (
         <GlobalContext.Provider value={{
-            contract, walletAddress, showAlert, setShowAlert, battleName, setBattleName
+            contract,
+            walletAddress,
+            showAlert,
+            setShowAlert,
+            battleName,
+            setBattleName,
+            gameData
         }}>
             {children}
         </GlobalContext.Provider>
