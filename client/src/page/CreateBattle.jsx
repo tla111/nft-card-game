@@ -5,16 +5,23 @@ import { useGlobalContext } from '../context';
 import { CustomButton, CustomInput, PageHOC } from '../components';
 
 const CreateBattle = () => {
+    const { contract, battleName, setBattleName } = useGlobalContext();
     const navigate = useNavigate()
+
+    const handleClick = () => { }
     return (
         <>
             <div className="flex flex-col mb-5">
                 <CustomInput
                     label="Battle"
                     placeholder="Enter battle name"
+                    value={battleName}
+                    handleValueChange={setBattleName}
                 />
                 <CustomButton
-
+                    title="Create Battle"
+                    handleClick={handleClick}
+                    resetStyles="mt-6"
                 />
             </div>
         </>
