@@ -7,6 +7,19 @@ import styles from '../styles'
 const JoinBattle = () => {
     const { contract, gameData, setShowAlert, setBattleName, walletAddress } = useGlobalContext();
     const navigate = useNavigate();
+
+    const handleClick = async () => {
+        setBattleName(setBattleName)
+
+        try {
+            await contract.joinBattle(battleName)
+
+            setShowAlert({ status: true, type: "success", message: `Joining ${battleName}` })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <>
             <h2 className={styles.joinHeadText}>Available Battles:</h2>
@@ -17,6 +30,10 @@ const JoinBattle = () => {
                         !battle.players.includes(walletAddress)).map((battle, index) => (
                             <div key={battle.name + index} className={styles.flexBetween}>
                                 <p className={styles.joinBattleTitle}> {index + 1}. {battle.name}</p>
+                                <CustomButton
+                                    title="Join"
+                                    handleClick={() => handleClick(battle.name)}
+                                />
                             </div>
                         ))
                     :
