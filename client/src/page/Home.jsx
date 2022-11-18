@@ -42,6 +42,7 @@ const Home = () => {
     }
 
     if (contract) checkForPlayerToken()
+
   }, [contract])
 
   return (
